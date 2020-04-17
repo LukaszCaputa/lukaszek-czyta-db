@@ -3,12 +3,11 @@ create table d_book(
     title VARCHAR(500) NOT NULL,
     author VARCHAR(500) NOT NULL,
     lead VARCHAR(500) NOT NULL,
-    notes VARCHAR(500) NOT NULL,
-    recommendation NUMBER NOT NULL,
-    read_date DATE,
-    create_tstamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    update_tstamp TIMESTAMP,
+    notes BLOB NOT NULL,
+    recommendation INT NOT NULL,
+    read_date DATE NOT NULL,
+    create_tstamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    update_tstamp TIMESTAMP NOT NULL,
     PRIMARY KEY ( id ),
-    FOREIGN KEY (task_id) REFERENCES tasks (task_id),
-    FOREIGN KEY (recommendation) REFERENCES s_recommendation (id)
+    FOREIGN KEY (recommendation) REFERENCES s_recommendation ( id )
 );
